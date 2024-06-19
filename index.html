@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinette</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded shadow-md text-center max-w-md w-full">
+        <h1 class="text-2xl font-bold mb-4">Jeu de Devinette</h1>
+        <p class="mb-4">Devinez un nombre entre 1 et 100</p>
+        <input type="number" id="guessInput" class="border p-2 mb-4 w-full" placeholder="Entrez votre devinette">
+        <button id="guessButton" class="bg-blue-500 text-white p-2 rounded w-full mb-4">Deviner</button>
+        <button id="retryButton" class="bg-green-500 text-white p-2 rounded w-full mb-4 hidden">Réessayer</button>
+        <p id="message" class="mt-4"></p>
+        <p id="attempts" class="mt-2 text-sm text-gray-600"></p>
+    </div>
+</body>
+</html>
