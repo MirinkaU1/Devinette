@@ -4,19 +4,24 @@ document.addEventListener("DOMContentLoaded", function() {
     const retryButton = document.getElementById('retryButton');
     const message = document.getElementById('message');
     const attemptsDisplay = document.getElementById('attempts');
+    const guessList = document.getElementById('guessList');
 
     let randomNumber = Math.floor(Math.random() * 100) + 1;
     let attempts = 5;
+    let guesses = [];
 
     function resetGame() {
         randomNumber = Math.floor(Math.random() * 100) + 1;
         attempts = 5;
+        guesses = [];
         message.textContent = '';
         attemptsDisplay.textContent = '';
+        guessList.innerHTML = '';
         guessInput.value = '';
         guessInput.disabled = false;
         guessButton.disabled = false;
         retryButton.classList.add('hidden');
+        guessButton.classList.remove('hidden');
     }
 
     guessButton.addEventListener('click', function() {
@@ -30,6 +35,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         attempts--;
+        guesses.push(userGuess);
+
+        const guessItem = document.createElement('li');
+        guessItem.textContent = `Nombre entré : ${userGuess}`;
+        guessList.appendChild(guessItem);
 
         if (userGuess === randomNumber) {
             message.textContent = "Félicitations ! Vous avez deviné le bon nombre !";
@@ -38,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
             guessButton.disabled = true;
             guessInput.disabled = true;
             retryButton.classList.remove('hidden');
+            guessButton.classList.add('hidden');
         } else if (userGuess < randomNumber) {
             message.textContent = "Le nombre est plus grand.";
             message.classList.remove("text-green-500", "text-yellow-500");
