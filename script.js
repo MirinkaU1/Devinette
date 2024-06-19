@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
             guessButton.disabled = true;
             guessInput.disabled = true;
             retryButton.classList.remove('hidden');
+            guessButton.classList.add('hidden');
         }
 
         guessInput.value = '';
